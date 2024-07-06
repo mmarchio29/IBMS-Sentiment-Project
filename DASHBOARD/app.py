@@ -11,7 +11,7 @@ from dash.dependencies import Input, Output
 
 
 # Data
-file_path = r'C:\\Users\\mamar\\Questrom Sentiment Project\\Data\\final_merged_output.xlsx'
+file_path = r'/Users/davidekim/Desktop/DataScience/Research_M/Processing-and-Visualization-Pipeline/DASHBOARD/assets/final_merged_output.xlsx'
 df = pd.read_excel(file_path)
 
 # Convert the 'Date_x' column to datetime format
