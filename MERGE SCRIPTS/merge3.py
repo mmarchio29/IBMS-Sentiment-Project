@@ -25,6 +25,9 @@ for col in additional_columns:
 columns_to_merge = common_columns + additional_columns
 merged_data = pd.concat([wb[columns_to_merge], vis[columns_to_merge]], ignore_index=True)
 
+# drop duplicates
+merged_data.drop_duplicates(subset=['ID', 'Keyword'], keep='first', inplace=True)
+
 # save file
 output_file_path  = r'C:\\Users\\mamar\\Questrom Sentiment Project\\DATA\\WB_VIS.csv'
 merged_data.to_csv(output_file_path, index=False)
