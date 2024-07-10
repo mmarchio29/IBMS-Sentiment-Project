@@ -68,6 +68,7 @@ app.layout = html.Div([
                     options=[{'label': 'All', 'value': 'All'}] + [{'label': st, 'value': st} for st in df['Source Type'].unique() if pd.notna(st)],
                     value='All',
                     clearable=False
+                    multi=True
                 ),
             ], width=6, md=3, className="text-center"),
 
@@ -78,6 +79,7 @@ app.layout = html.Div([
                     options=[{'label': 'All', 'value': 'All'}] + [{'label': publisher, 'value': publisher} for publisher in df['Publication Title'].unique() if pd.notna(publisher)],
                     value='All',
                     clearable=False
+                    multi=True
                 ),
             ], width=6, md=3, className="text-center"),
 
