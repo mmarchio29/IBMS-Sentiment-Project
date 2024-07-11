@@ -6,45 +6,40 @@ from dash import Dash, dcc, html
 from dash.dependencies import Input, Output
 import dash_auth
 
-# Define valid username and password pairs
-VALID_USERNAME_PASSWORD_PAIRS = {
-    'questrom': 'sentimentanalysis'  # Replace with your desired username and password
-}
-
 # Data
 file_path = r'./assets/QuestromSA_final.csv'
 df = pd.read_csv(file_path)
 
-# Convert the date column to datetime format
-df['Date'] = pd.to_datetime(df['Date'])
+# Convert the date column to datetime format with mixed formats
+df['Date'] = pd.to_datetime(df['Date'], errors='coerce')
 df['Year'] = df['Date'].dt.year
 
 # Define positive and negative sentiments
 positive_sentiments = ['Happiness', 'Love', 'Surprise']
 negative_sentiments = ['Anger', 'Disgust', 'Fear', 'Sadness']
 
-# Positive/Negative scores 
+# Positive/Negative scores
 df['Positive'] = df[positive_sentiments].sum(axis=1)
 df['Negative'] = df[negative_sentiments].sum(axis=1)
 
 # Clean up whitespace and handle missing values
-df['Source Type'] = df['Source Type'].str.strip().dropna()
-df['Publication Title'] = df['Publication Title'].str.strip().dropna()
-df['Keyword'] = df['Keyword'].str.strip().dropna()
+df['Source Type'] = df['Source Type'].str.strip().fillna('')
+df['Publication Title'] = df['Publication Title'].str.strip().fillna('')
+df['Keyword'] = df['Keyword'].str.strip().fillna('')
 
 # Ensure numeric columns are indeed numeric
 numeric_columns = positive_sentiments + negative_sentiments + ['Positive', 'Negative']
 for col in numeric_columns:
     df[col] = pd.to_numeric(df[col], errors='coerce')
 
+# Basic Auth (replace with your own username and password)
+VALID_USERNAME_PASSWORD_PAIRS = {
+    'questrom': 'ibms'
+}
+
 # Initialize the Dash app
 app = Dash(__name__, external_stylesheets=[dbc.themes.COSMO])
-
-# Add authentication
-auth = dash_auth.BasicAuth(
-    app,
-    VALID_USERNAME_PASSWORD_PAIRS
-)
+auth = dash_auth.BasicAuth(app, VALID_USERNAME_PASSWORD_PAIRS)
 
 app.layout = html.Div([
     dbc.Container([
@@ -54,7 +49,6 @@ app.layout = html.Div([
         dbc.Row([
             dbc.Col(html.A(html.Img(src=r'./assets/infoicon.svg', height='30px'), href='#', id='info-icon'), width=1, className="text-right")
         ]),
-
         dbc.Tooltip(
             [
                 html.P("How to use this dashboard:", className="mb-2"),
@@ -68,42 +62,38 @@ app.layout = html.Div([
             target="info-icon",
             placement="right"
         ),
-
         dbc.Row([
             dbc.Col([
                 html.Label("Source Type:", style={'font-family': 'Arial', 'color': '#2E4053'}),
                 dcc.Dropdown(
                     id='source-type-dropdown',
-                    options=[{'label': 'All', 'value': 'All'}] + [{'label': st, 'value': st} for st in df['Source Type'].unique() if pd.notna(st)],
+                    options=[{'label': 'All', 'value': 'All'}] + [{'label': st, 'value': st} for st in df['Source Type'].unique() if st],
                     value='All',
                     clearable=False,
                     multi=True
                 ),
             ], width=6, md=3, className="text-center"),
-
             dbc.Col([
                 html.Label("Publisher:", style={'font-family': 'Arial', 'color': '#2E4053'}),
                 dcc.Dropdown(
                     id='publisher-dropdown',
-                    options=[{'label': 'All', 'value': 'All'}] + [{'label': publisher, 'value': publisher} for publisher in df['Publication Title'].unique() if pd.notna(publisher)],
+                    options=[{'label': 'All', 'value': 'All'}] + [{'label': publisher, 'value': publisher} for publisher in df['Publication Title'].unique() if publisher],
                     value='All',
                     clearable=False,
                     multi=True
                 ),
             ], width=6, md=3, className="text-center"),
-
             dbc.Col([
                 html.Label("Keyword:", style={'font-family': 'Arial', 'color': '#2E4053'}),
                 dcc.Dropdown(
                     id='keyword-dropdown',
-                    options=[{'label': 'All', 'value': 'All'}] + [{'label': keyword, 'value': keyword} for keyword in df['Keyword'].unique() if pd.notna(keyword)],
+                    options=[{'label': 'All', 'value': 'All'}] + [{'label': keyword, 'value': keyword} for keyword in df['Keyword'].unique() if keyword],
                     value='All',
                     clearable=False,
                     multi=True
                 ),
             ], width=6, md=3, className="text-center"),
         ], className="mb-4 justify-content-center"),
-
         dbc.Row([
             dbc.Col([
                 html.Label("Emotions:", style={'font-family': 'Arial', 'color': '#2E4053'}),
@@ -126,7 +116,6 @@ app.layout = html.Div([
                     multi=True
                 ),
             ], width=6, md=3, className="text-center"),
-
             dbc.Col([
                 html.Label("Aggregation Value:", style={'font-family': 'Arial', 'color': '#2E4053'}),
                 dcc.Dropdown(
@@ -143,27 +132,24 @@ app.layout = html.Div([
                 ),
             ], width=6, md=3, className="text-center"),
         ], className="mb-4 justify-content-center"),
-
         dbc.Row([
             dbc.Col([
                 html.Label("Year Range:", style={'font-family': 'Arial', 'color': '#2E4053'}),
                 dcc.RangeSlider(
                     id='year-slider',
-                    min=df['Year'].min(),
-                    max=df['Year'].max(),
-                    value=[df['Year'].min(), df['Year'].max()],
+                    min=int(df['Year'].min()),
+                    max=int(df['Year'].max()),
+                    value=[int(df['Year'].min()), int(df['Year'].max())],
                     marks={str(year): str(year) for year in range(int(df['Year'].min()), int(df['Year'].max()) + 1) if int(year) % 5 == 0},
                     step=1
                 ),
             ], width=12)
         ], className="mb-4"),
-
         dbc.Row([
             dbc.Col([
                 dcc.Graph(id='sentiment-line-graph', style={'height': '45vh'})
             ], width=12),
         ], className="mb-4"),
-
         dbc.Row([
             dbc.Col([
                 dcc.Graph(id='capitalism-scatter-graph', style={'height': '45vh'})
@@ -198,10 +184,7 @@ def update_graph(selected_source, selected_publisher, selected_keyword, selected
         filtered_df = filtered_df[filtered_df['Publication Title'].isin(selected_publisher)]
     if 'All' not in selected_keyword:
         filtered_df = filtered_df[filtered_df['Keyword'].isin(selected_keyword)]
-
     filtered_df = filtered_df[(filtered_df['Year'] >= selected_years[0]) & (filtered_df['Year'] <= selected_years[1])]
-
-    # Handle empty DataFrame scenario
     if filtered_df.empty:
         return (px.line(title="No data available for the selected filters."),
                 px.scatter(title="No data available for the selected filters."),
@@ -215,7 +198,7 @@ def update_graph(selected_source, selected_publisher, selected_keyword, selected
                 px.scatter(title="Please select at least one emotion."),
                 px.scatter(title="Please select at least one emotion."),
                 px.bar(title="Please select at least one emotion."))
-
+    
     filtered_df_numeric = filtered_df[['Date', 'Year', 'Keyword'] + numeric_columns].set_index('Date')
     if aggregation_value == 'rolling_mean':
         filtered_df_numeric = filtered_df_numeric.groupby(['Year', 'Keyword']).mean().rolling(window=5, min_periods=1).mean().reset_index()
@@ -294,4 +277,6 @@ def update_graph(selected_source, selected_publisher, selected_keyword, selected
     return line_fig, scatter_fig1, scatter_fig2, bar_fig
 
 if __name__ == '__main__':
-    app.run_server(debug=True, port=8050)  # Change the port number as needed
+    import os
+    port = int(os.environ.get('PORT', 8050))
+    app.run_server(debug=False, host='0.0.0.0', port=port)
