@@ -1,0 +1,12 @@
+{
+    "name": "EconomicSentimentAnalysis",
+    "description": "A dashboard for sentiment analysis.",
+    "image": "heroku/python",
+    "addons": ["heroku-postgresql"],
+    "env": {
+      "FLASK_ENV": "production"
+    },
+    "scripts": {
+      "postdeploy": "python app.py"
+    }
+  }
