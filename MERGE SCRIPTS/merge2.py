@@ -57,11 +57,13 @@ for idx, zip_filename in enumerate(zip_files):
     for file in files:
         os.remove(os.path.join(root, file))
 
-    # progress
+    # print progress
     print(f"Processed {idx + 1}/{len(zip_files)}: {zip_filename}")
 
+    # save file
 if df1 is not None and df2 is not None:
     merged_df = pd.merge(df1, df2, on=shared_column)
+    merged_df.drop_duplicates(subset=['ID', 'Keyword'], keep='first', inplace=True)
     merged_df.to_csv(merged_output_file, index=False)
     print(f"Merged CSV file saved to {merged_output_file}")
 else:
