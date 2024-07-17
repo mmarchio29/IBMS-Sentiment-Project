@@ -15,6 +15,7 @@ def merge_csv_files(wbdata, output_file_path):
             df['Keyword'] = keyword
 
     merged_data = pd.concat(dataframes, ignore_index=True)
+    merged_data.drop_duplicates(subset=['GOID', 'Keyword'], keep='first', inplace=True)
     merged_data.to_csv(output_file_path, index=False)
 
 # save file
