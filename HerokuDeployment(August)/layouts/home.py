@@ -1,108 +1,91 @@
 from dash import html, dcc
 
+def create_ideology_block(icon, title, items, link_text, href):
+    return html.Div(className='ideology-block', children=[
+        html.Img(src=f'/assets/images/{icon}.png', className='ideology-icon'),
+        html.Div(className='ideology-block-header', children=[
+            html.H3(title)
+        ]),
+        html.Div(className='ideology-block-list', children=[
+            html.Ul(children=[html.Li(item) for item in items])
+        ]),
+        dcc.Link(link_text, href=href, className='ideology-button')
+    ])
+
 def layout():
-    return html.Div([
+    return html.Div(className='main-container', children=[
         html.Div(className='header-topic', children=[
-            html.H2("Economic Ideology Sentiment Analysis Report")
+            html.H2("Economic Ideology Sentiment Analysis")
         ]),
         html.Div(className='header-section-parent', children=[
             html.Div(className='header-section', children=[
                 html.Img(src='/assets/images/route.png', className='header-icon'),
                 html.Div(className='header-section-text', children=[
-                    html.H2("Navigate the Currents of Economic Sentiments", className='header-subtitle'),
-                    html.P("Explore in-depth sentiment analysis across key economic ideologies like Capitalism, Socialism, and Communism.", className='header-body')
+                    html.H1([
+                        "Navigate the Currents of",
+                        html.Br(),
+                        "Economic Sentiments"
+                    ]),
+                    html.H3([
+                        "Explore in-depth sentiment analysis",
+                        html.Br(),
+                        "across key economic ideologies",
+                        html.Br(),
+                        "like Capitalism, Socialism, and Communism."
+                    ])
                 ]),
                 html.Div(className='header-section-button-box', children=[
                     dcc.Link('View Report', href='/report', className='header-section-button')
-                ]),
+                ])
             ]),
-            html.Div(className='header-section-img',children=[
-                
-            ])
+            html.Div(className='header-section-img')
         ]),
-        # Ideology Sections
         html.Div(className='ideology-section', children=[
             html.Div(className='ideology-section-one', children=[
-                html.Div(className='ideology-block', children=[
-                    html.Img(src='/assets/images/capitalism.png', className='ideology-icon'),
-                    html.Div(className='ideology-block-header', children=[
-                        html.H2("Capitalism")
-                    ]),
-                    html.Div(className='ideology-block-list', children=[
-                        html.Ul(children=[
-                            html.Li("Competitive markets"),
-                            html.Li("Profit focus")
-                        ])
-                    ]),
-                    dcc.Link("Maximize Profit", href='/capitalism', className='ideology-button')
-                ]),
-                html.Div(className='ideology-block', children=[
-                    html.Img(src='/assets/images/socialism.png', className='ideology-icon'),
-                    html.Div(className='ideology-block-header', children=[
-                        html.H2("Socialism")
-                    ]),
-                    html.Div(className='ideology-block-list', children=[
-                        html.Ul(children=[
-                            html.Li("Regulated resources"),
-                            html.Li("Social welfare")
-                        ])
-                    ]),
-                    dcc.Link("Share Wealth", href='/socialism', className='ideology-button')
-                ]),
-                html.Div(className='ideology-block', children=[
-                    html.Img(src='/assets/images/communism.png', className='ideology-icon'),
-                    html.Div(className='ideology-block-header', children=[
-                        html.H2("Communism")
-                    ]),
-                    html.Div(className='ideology-block-list', children=[
-                        html.Ul(children=[
-                            html.Li("Collective ownership"),
-                            html.Li("Needs-based distribution")
-                        ])
-                    ]),
-                    dcc.Link("Distribute Equally", href='/communism', className='ideology-button')
-                ]),
+                create_ideology_block(
+                    icon='capitalism',
+                    title='Capitalism',
+                    items=['Competitive markets', 'Profit focus'],
+                    link_text='Maximize Profit',
+                    href='/capitalism'
+                ),
+                create_ideology_block(
+                    icon='socialism',
+                    title='Socialism',
+                    items=['Regulated resources', 'Social welfare'],
+                    link_text='Share Wealth',
+                    href='/socialism'
+                ),
+                create_ideology_block(
+                    icon='communism',
+                    title='Communism',
+                    items=['Collective ownership', 'Needs-based distribution'],
+                    link_text='Distribute Equally',
+                    href='/communism'
+                )
             ]),
             html.Div(className='ideology-section-two', children=[
-                html.Div(className='ideology-block', children=[
-                    html.Img(src='/assets/images/imperialism.png', className='ideology-icon'),
-                    html.Div(className='ideology-block-header', children=[
-                        html.H2("Imperialism")
-                    ]),
-                    html.Div(className='ideology-block-list', children=[
-                        html.Ul(children=[
-                            html.Li("Territorial expansion"),
-                            html.Li("Cultural influence")
-                        ])
-                    ]),
-                    dcc.Link("Extend Influence", href='/imperialism', className='ideology-button')
-                ]),
-                html.Div(className='ideology-block', children=[
-                    html.Img(src='/assets/images/colonialism.png', className='ideology-icon'),
-                    html.Div(className='ideology-block-header', children=[
-                        html.H2("Colonialism")
-                    ]),
-                    html.Div(className='ideology-block-list', children=[
-                        html.Ul(children=[
-                            html.Li("Economic colonization"),
-                            html.Li("Cultural assimilation")
-                        ])
-                    ]),
-                    dcc.Link("Examine Impact", href='/colonialism', className='ideology-button')
-                ]),
-                html.Div(className='ideology-block', children=[
-                    html.Img(src='/assets/images/nationalism.png', className='ideology-icon'),
-                    html.Div(className='ideology-block-header', children=[
-                        html.H2("Nationalism")
-                    ]),
-                    html.Div(className='ideology-block-list', children=[
-                        html.Ul(children=[
-                            html.Li("Sovereignty"),
-                            html.Li("National unity")
-                        ])
-                    ]),
-                    dcc.Link("Strengthen Unity", href='/nationalism', className='ideology-button')
-                ])
+                create_ideology_block(
+                    icon='imperialism',
+                    title='Imperialism',
+                    items=['Territorial expansion', 'Cultural influence'],
+                    link_text='Extend Influence',
+                    href='/imperialism'
+                ),
+                create_ideology_block(
+                    icon='colonialism',
+                    title='Colonialism',
+                    items=['Economic colonization', 'Cultural assimilation'],
+                    link_text='Examine Impact',
+                    href='/colonialism'
+                ),
+                create_ideology_block(
+                    icon='nationalism',
+                    title='Nationalism',
+                    items=['Sovereignty', 'National unity'],
+                    link_text='Strengthen Unity',
+                    href='/nationalism'
+                )
             ])
         ])
-    ], className='main-container')
+    ])

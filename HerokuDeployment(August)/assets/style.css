@@ -13,21 +13,28 @@ html, body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-image: url('images/skyscraper.png');
-    background-repeat: no-repeat;
-    background-size: cover;
+    background: url('images/skyscraper.png') no-repeat center center/cover;
 }
 
-.header {
+.header, .footer {
     width: 100%;
-    background-color: #a71831; /* BU Red */
-    color: white;
     text-align: center;
     padding: 20px 0;
 }
 
+.header {
+    background-color: #a71831; /* BU Red */
+    color: white;
+}
+
+.footer {
+    background-color: #2D2926; /* BU Black */
+    color: darkgray;
+    padding: 10px 0;
+}
+
 .header-topic {
-    width:100%;
+    width: 100%;
     text-align: center;
     padding: 40px;
     color: white;
@@ -60,8 +67,7 @@ html, body {
 .header-section-img {
     width: 30%;
     height: auto;
-    background-image: url('images/dollar.png');
-    background-size: contain;
+    background: url('images/dollar.png') center center/contain;
 }
 
 .header-icon {
@@ -69,16 +75,17 @@ html, body {
     padding-bottom: 20px;
 }
 
-.header-logo {
-    width: 15%;
+.header-logo, .footer-logo {
     height: auto;
     padding: 10px 0;
 }
 
+.header-logo {
+    width: 300px;
+}
+
 .footer-logo {
-    width: 20%;
-    height: auto;
-    padding: 10px 0;
+    width: 500px;
 }
 
 .page-content {
@@ -88,62 +95,50 @@ html, body {
     align-items: center;
 }
 
-.footer {
-    width: 100%;
-    background-color: #2D2926; /* BU Black */
-    color: darkgray;
-    text-align: center;
-    padding: 10px 0;
-}
-
 .footer-email {
     color: darkgray;
     text-decoration: none;
 }
 
-.header-section-button {
+.header-section-button, .ideology-button {
     padding: 10px 20px;
-    background-color: white; /* BU Red */
     color: black;
     border: none;
     border-radius: 5px;
     text-decoration: none;
+    font-size: 25px;
     transition: background-color 0.2s;
-    font-size: 1.2vw;
+}
+
+.header-section-button {
+    background-color: white;
     width: 30vh;
 }
 
-.header-section-button:hover {
+.header-section-button:hover, .ideology-button:hover {
     background-color: #a71831;
     color: white;
 }
 
-.ideology-section-one {
+.ideology-section-one, .ideology-section-two {
     display: flex;
     justify-content: space-around;
     padding: 80px;
-    flex-wrap: wrap; /* Ensures wrapping on smaller screens */
+    flex-wrap: wrap;
 }
 
-.ideology-section-two {
-    display: flex;
-    justify-content: space-around;
-    padding: 80px;
-    flex-wrap: wrap; /* Ensures wrapping on smaller screens */
-}
-
-.ideology-section{
+.ideology-section {
     display: flex;
     flex-direction: column;
 }
 
 .ideology-block {
     border-radius: 25px;
-    background-color:rgba(167, 24, 49, 0.6);
+    background-color: rgba(167, 24, 49, 0.6);
     padding: 30px;
     width: 20%;
     text-align: center;
-    margin: 40px; /* Provides spacing between blocks */
+    margin: 40px;
 }
 
 .ideology-icon {
@@ -155,46 +150,109 @@ html, body {
 }
 
 .ideology-block-list {
+    text-align: center;
     padding-bottom: 30px;
     color: darkgray;
 }
 
-.ideology-button {
-    margin: 10px;
-    padding: 10px 20px;
-    color: black;
-    border: none;
-    border-radius: 5px;
-    text-decoration: none;
-    font-size: 1.2vw;
-}
-
-.ideology-button:hover {
-    background-color: rgba(167, 24, 49, 0.8);
-    color: white;
-}
-
-h1, h2, p {
-    margin: 10px 0;
+ul {
+    margin: 0;
+    padding: 0;
 }
 
 li {
-    font-size: 1vw
-  }
+    font-size: 30px;
+    list-style-type: none;
+}
+
+h1, h2, h3, p {
+    padding: 30px;
+}
 
 h1 {
-    font-size: 3vw;
+    font-size: 80px;
 }
 
 h2 {
-    font-size: 2vw;
+    font-size: 60px;
+}
+
+h3 {
+    font-size: 40px;
 }
 
 p {
-    font-size: 1.2vw;
+    font-size: 30px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 2000px) {
+    .header-logo, .footer-logo {
+        width: 300px;
+    }
+    .header-section-button, .ideology-button {
+        font-size: 20px;
+    }
+    h1 {
+        font-size: 60px;
+        padding: 20px;
+    }
+    h2 {
+        font-size: 40px;
+        padding: 20px;
+    }
+    h3 {
+        font-size: 30px;
+    }
+    p {
+        font-size: 20px;
+        padding: 20px;
+    }
+    li {
+        font-size: 20px;
+    }
+    .ideology-icon {
+        width: 10%;
+    }
+}
+
+@media (max-width: 1500px) {
+    .header-logo, .footer-logo {
+        width: 300px;
+    }
+    .header-section-button, .ideology-button {
+        width: 100%;
+        font-size: 30px;
+    }
+    .ideology-block {
+        width: 100%;
+    }
+    h1 {
+        font-size: 60px;
+    }
+    h2 {
+        font-size: 40px;
+    }
+    h3 {
+        font-size: 30px;
+    }
+    p {
+        font-size: 20px;
+    }
+    li {
+        font-size: 30px;
+    }
+    .ideology-icon {
+        width: 10%;
+    }
+}
+
+@media (max-width: 1200px) {
+    h1 {
+        font-size: 50px;
+    }
+}
+
+@media (max-width: 1000px) {
     .header-logo, .footer-logo {
         width: 300px;
     }
@@ -203,18 +261,33 @@ p {
         font-size: 20px;
     }
     .ideology-block {
-        width: 100%; /* Full width on smaller screens */
+        width: 100%;
     }
     h1 {
-        font-size: 50px;
+        font-size: 40px;
     }
     h2 {
         font-size: 30px;
+    }
+    h3 {
+        font-size: 20px;
     }
     p {
         font-size: 20px;
     }
     li {
         font-size: 20px;
+    }
+    .ideology-icon {
+        width: 10%;
+    }
+}
+
+@media (max-width: 800px) {
+    .header-section {
+        width: 75%;
+    }
+    .header-section-img {
+        width: 25%;
     }
 }
