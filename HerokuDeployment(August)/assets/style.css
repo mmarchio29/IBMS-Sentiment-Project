@@ -54,6 +54,7 @@ html, body {
 .header-section-text {
     padding: 30px;
     text-align: left;
+    font-size: 150%;
 }
 
 .header-section-img {
@@ -108,7 +109,7 @@ html, body {
     border-radius: 5px;
     text-decoration: none;
     transition: background-color 0.2s;
-    font-size: 16px;
+    font-size: 1.2vw;
     width: 30vh;
 }
 
@@ -117,11 +118,23 @@ html, body {
     color: white;
 }
 
-.ideology-section {
+.ideology-section-one {
     display: flex;
     justify-content: space-around;
     padding: 80px;
     flex-wrap: wrap; /* Ensures wrapping on smaller screens */
+}
+
+.ideology-section-two {
+    display: flex;
+    justify-content: space-around;
+    padding: 80px;
+    flex-wrap: wrap; /* Ensures wrapping on smaller screens */
+}
+
+.ideology-section{
+    display: flex;
+    flex-direction: column;
 }
 
 .ideology-block {
@@ -153,6 +166,7 @@ html, body {
     border: none;
     border-radius: 5px;
     text-decoration: none;
+    font-size: 1.2vw;
 }
 
 .ideology-button:hover {
@@ -164,20 +178,43 @@ h1, h2, p {
     margin: 10px 0;
 }
 
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+li {
+    font-size: 1vw
   }
+
+h1 {
+    font-size: 3vw;
+}
+
+h2 {
+    font-size: 2vw;
+}
+
+p {
+    font-size: 1.2vw;
+}
 
 @media (max-width: 768px) {
     .header-logo, .footer-logo {
-        height: 50px;
+        width: 300px;
     }
-    .link-button, .view-report-button {
+    .header-section-button, .ideology-button {
         width: 100%;
+        font-size: 20px;
     }
     .ideology-block {
         width: 100%; /* Full width on smaller screens */
+    }
+    h1 {
+        font-size: 50px;
+    }
+    h2 {
+        font-size: 30px;
+    }
+    p {
+        font-size: 20px;
+    }
+    li {
+        font-size: 20px;
     }
 }
