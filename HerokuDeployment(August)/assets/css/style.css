@@ -12,8 +12,11 @@ html, body {
 .main-container {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     min-height: 100vh;
-    background: url('images/skyscraper.png') no-repeat center center/cover;
+    width: 100%;
+    background: url('../images/skyscraper.png') no-repeat center center/cover;
 }
 
 .header, .footer {
@@ -43,7 +46,8 @@ html, body {
 .header-section-parent {
     display: flex;
     flex-direction: row;
-    height: 80vh;
+    height: 90vh;
+    width: 100%;
 }
 
 .header-section {
@@ -59,7 +63,6 @@ html, body {
 }
 
 .header-section-text {
-    padding: 30px;
     text-align: left;
     font-size: 150%;
 }
@@ -67,12 +70,11 @@ html, body {
 .header-section-img {
     width: 30%;
     height: auto;
-    background: url('images/dollar.png') center center/contain;
+    background: url('../images/dollar.png') center center/contain;
 }
 
 .header-icon {
     width: 10%;
-    padding-bottom: 20px;
 }
 
 .header-logo, .footer-logo {
@@ -120,10 +122,22 @@ html, body {
     color: white;
 }
 
-.ideology-section-one, .ideology-section-two {
+.header-section-button-box {
+    padding-top: 20px;
+    padding-bottom: 60px;
+}
+
+.ideology-section-one {
     display: flex;
     justify-content: space-around;
-    padding: 80px;
+    padding: 80px 80px 20px 80px;
+    flex-wrap: wrap;
+}
+
+.ideology-section-two {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px 80px 80px 80px;
     flex-wrap: wrap;
 }
 
@@ -165,8 +179,8 @@ li {
     list-style-type: none;
 }
 
-h1, h2, h3, p {
-    padding: 30px;
+h1, h2, h3 {
+    padding: 20px;
 }
 
 h1 {
@@ -194,18 +208,18 @@ p {
     }
     h1 {
         font-size: 60px;
-        padding: 20px;
+        padding: 10px;
     }
     h2 {
         font-size: 40px;
-        padding: 20px;
+        padding: 10px;
     }
     h3 {
         font-size: 30px;
+        padding: 10px;
     }
     p {
         font-size: 20px;
-        padding: 20px;
     }
     li {
         font-size: 20px;
@@ -221,7 +235,7 @@ p {
     }
     .header-section-button, .ideology-button {
         width: 100%;
-        font-size: 30px;
+        font-size: 20px;
     }
     .ideology-block {
         width: 100%;
@@ -239,7 +253,7 @@ p {
         font-size: 20px;
     }
     li {
-        font-size: 30px;
+        font-size: 20px;
     }
     .ideology-icon {
         width: 10%;

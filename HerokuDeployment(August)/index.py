@@ -1,27 +1,17 @@
-from dash import Dash, html, dcc
-from dash.dependencies import Input, Output
-from app import app
-import layouts.home as home_layout
-import layouts.report as report
+from dash import html, dcc
+from dash import page_container
 from components.common import get_header, get_footer
+from app import app  # Import the already initialized app from app.py
 
-# Setup the application layout
-app.layout = html.Div(className='main-container', children=[
-    get_header(),
-    dcc.Location(id='url', refresh=False),
-    html.Div(id='page-content'),
-    get_footer()
-])
-
-# Define the callback for dynamic page routing
-@app.callback(
-    Output('page-content', 'children'),
-    Input('url', 'pathname')
+# Set up the application layout
+app.layout = dcc.Loading(
+    html.Div(className='main-container', children=[
+        get_header(),
+        page_container,  # Automatically load the correct page based on the URL
+        get_footer()
+    ]),
+    type="circle",
 )
-def display_page(pathname):
-    if pathname == '/report':
-        return report.layout()
-    return home_layout.layout() 
 
 if __name__ == '__main__':
     app.run_server(debug=True)
