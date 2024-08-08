@@ -54,21 +54,21 @@ layout = html.Div(className='main-container', children=[
             create_ideology_block(
                 icon='capitalism',
                 title='Capitalism',
-                items=['Competitive markets', 'Profit focus'],
+                items=['Competitive Markets', 'Profit Focused'],
                 link_text='Maximize Profit',
                 href='/capitalism'
             ),
             create_ideology_block(
                 icon='socialism',
                 title='Socialism',
-                items=['Regulated resources', 'Social welfare'],
+                items=['Regulated Resources', 'Social Welfare'],
                 link_text='Share Wealth',
                 href='/socialism'
             ),
             create_ideology_block(
                 icon='communism',
                 title='Communism',
-                items=['Collective ownership', 'Needs-based distribution'],
+                items=['Collective Ownership', 'Targeted Allocation'],
                 link_text='Distribute Equally',
                 href='/communism'
             )
@@ -77,23 +77,23 @@ layout = html.Div(className='main-container', children=[
             create_ideology_block(
                 icon='imperialism',
                 title='Imperialism',
-                items=['Territorial expansion', 'Cultural influence'],
+                items=['Territorial Expansion', 'Cultural Influence'],
                 link_text='Extend Influence',
                 href='/imperialism'
             ),
             create_ideology_block(
                 icon='colonialism',
                 title='Colonialism',
-                items=['Economic colonization', 'Cultural assimilation'],
+                items=['Economic Colonization', 'Cultural Assimilation'],
                 link_text='Examine Impact',
                 href='/colonialism'
             ),
             create_ideology_block(
-                icon='nationalism',
-                title='Nationalism',
-                items=['Sovereignty', 'National unity'],
-                link_text='Strengthen Unity',
-                href='/nationalism'
+                icon='more',
+                title='Other',
+                items=['Have ideas to share?', 'We’d love to hear.'],
+                link_text='Reach Out to Us',
+                href='#bottom'
             )
         ])
     ])
