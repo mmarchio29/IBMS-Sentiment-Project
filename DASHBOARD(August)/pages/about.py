@@ -16,7 +16,7 @@ layout = dbc.Container([
     ], className="mb-4"),
 
     dbc.Row([
-        dbc.Col(html.H1("About Economic Ideology Sentiment Project", className="about-title")),
+        dbc.Col(html.H1("About Economic Ideology Sentiment Project - REQUIRE EDITING", className="about-title")),
     ], className="mb-4"),
     
     dbc.Row([
@@ -76,6 +76,7 @@ layout = dbc.Container([
     dbc.Row([
         dbc.Col([
             html.Ul([
+                html.Li("Marcel Rindisbacher - Director - rindisbm@bu.edu", className="about-list"),
                 html.Li("Jay L. Zagorsky - Professor - zagorsky@bu.edu", className="about-list"),
                 html.Li("Sami H. Karaca - Professor - karaca@bu.edu", className="about-list"),
                 html.Li("David E. Kim - Assistant - dk98@bu.edu", className="about-list"),
