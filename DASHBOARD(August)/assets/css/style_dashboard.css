@@ -1,0 +1,190 @@
+/* Enhanced RangeSlider Styles */
+.rc-slider-rail {
+    background: linear-gradient(90deg, #48647c, #00aaff); /* Gradient for track */
+    height: 8px; /* Thicker track for better visibility */
+}
+
+.rc-slider-track {
+    background-color: transparent; /* Transparent track so gradient is visible */
+}
+
+.rc-slider-handle {
+    border: solid 3px #00aaff; /* Bright blue handle border */
+    height: 20px;
+    width: 20px;
+    background-color: #ffffff; /* White handle for contrast */
+    box-shadow: 0px 0px 10px rgba(0, 170, 255, 0.6); /* Glowing effect for handle */
+    cursor: pointer;
+    transition: box-shadow 0.3s ease; /* Smooth transition for hover */
+}
+
+.rc-slider-handle:hover {
+    box-shadow: 0px 0px 15px rgba(0, 170, 255, 1); /* Stronger glow on hover */
+}
+
+.rc-slider-dot {
+    background-color: #ffffff; /* White dots */
+    border-color: #ffffff;
+    width: 10px;
+    height: 10px;
+}
+
+.rc-slider-mark-text {
+    color: #ffffff; /* White text for marks */
+    font-size: 14px;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for labels */
+    padding: 2px 4px;
+    border-radius: 4px;
+}
+
+/* Enhanced Dropdown Styles */
+.Select-control {
+    background-color: #1a3e66 !important; /* Slightly lighter background for dropdown box */
+    border: 1px solid #007BFF !important; /* Bright blue border */
+    border-radius: 8px !important; /* Smooth rounded edges */
+    box-shadow: 0px 0px 10px rgba(0, 123, 255, 0.3) !important; /* Subtle shadow for depth */
+    padding: 8px 12px !important; /* More padding for spacing */
+    color: #ffffff !important; /* White text for better contrast */
+}
+
+.Select-menu-outer {
+    background-color: #f0f4f7 !important; /* Much lighter background for dropdown menu */
+    border: 1px solid #007BFF !important; /* Bright blue border */
+    border-radius: 8px !important; /* Smooth rounded edges */
+    box-shadow: 0px 0px 15px rgba(0, 123, 255, 0.5) !important; /* Enhanced shadow for dropdown menu */
+}
+
+/* Styles for selected items in the dropdown */
+.Select--multi .Select-value,
+.Select--single > .Select-control .Select-value .Select-value-label {
+    background-color: #007BFF !important; /* Bright blue background for selected items */
+    color: #ffffff !important; /* White text for selected items */
+    border-radius: 5px !important; /* Rounded edges for selected items */
+    padding: 5px 10px !important; /* Padding around selected text */
+}
+
+.Select-menu-outer .Select-option {
+    color: #1a3e66 !important; /* Dark blue text color for dropdown options */
+    padding: 10px 15px !important; /* More padding for better readability */
+    border-bottom: 1px solid #e0e0e0; /* Subtle border between options */
+}
+
+.Select-menu-outer .Select-option:hover {
+    background-color: #007BFF !important; /* Bright blue background on hover */
+    color: #ffffff !important; /* Ensure text remains white on hover */
+}
+
+/* Style for dropdown arrow */
+.Select-arrow-zone {
+    fill: #ffffff !important; /* White arrow for contrast */
+}
+
+/* Style for placeholder text */
+.Select-placeholder {
+    color: #cccccc !important; /* Lighter grey for placeholder text */
+    font-style: italic !important; /* Italic style to distinguish placeholders */
+}
+
+/* Enhanced Tooltip Styles */
+.tooltip-inner {
+    background-color: #333333 !important; /* Darker background for contrast */
+    color: #ffffff !important; /* Pure white for better readability */
+    font-size: 14px !important; /* Slightly smaller font for a balanced look */
+    border: 1px solid #00aaff !important; /* Bright blue border */
+    padding: 30px !important; /* More padding for better spacing */
+    border-radius: 8px !important; /* Increased border-radius for smoother look */
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.9) !important; /* Stronger shadow for depth */
+    text-align: justify !important; /* Ensures the text is evenly justified */
+    max-width: 1000px !important; /* Limits the width of the tooltip for better readability */
+}
+
+.tooltip-arrow {
+    color: #333333 !important; /* Match the arrow with the tooltip background */
+}
+
+/* General Layout and Typography Enhancements */
+body {
+    font-family: 'Roboto', sans-serif; /* Modern, clean font */
+    color: #333;
+}
+
+.container {
+    background-color: rgba(0, 51, 102, 0.8); /* Darker blue with more opacity */
+    padding: 40px;
+    border-radius: 15px; /* More rounded corners */
+    margin-top: 20px;
+    width: 100%;
+}
+
+h3, h4, h5, h6 {
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    letter-spacing: 1px; /* Slightly increased spacing for headings */
+}
+
+.label {
+    font-family: 'Roboto', sans-serif;
+    color: white;
+}
+
+/* Enhanced Graph Container Styles */
+.graph-container {
+    background-color: rgba(255, 255, 255, 0.15); /* Lighter background for better contrast */
+    padding: 25px; /* More padding for better spacing */
+    border-radius: 12px; /* More rounded corners */
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3); /* Stronger shadow for depth */
+    margin-bottom: 25px;
+}
+
+/* Enhanced Button Styles */
+button {
+    background-color: #003366; /* Deep blue for buttons */
+    color: white;
+    border: none;
+    padding: 12px 25px; /* Larger padding for a more comfortable click area */
+    border-radius: 8px; /* More rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth transition effect */
+}
+
+button:hover {
+    background-color: #00aaff; /* Bright blue for hover state */
+}
+
+/* Enhanced Table Styles */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.table th,
+.table td {
+    padding: 12px; /* Larger padding for better spacing */
+    border: 1px solid #003366; /* Deep blue for table borders */
+    text-align: left;
+    color: white;
+}
+
+.table th {
+    background-color: #003366; /* Deep blue for table headers */
+}
+
+.table tr:nth-child(even) {
+    background-color: rgba(0, 51, 102, 0.8); /* Darker blue for even rows */
+}
+
+/* Media Queries for Improved Responsiveness */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    .graph-container {
+        padding: 15px;
+    }
+
+    .tooltip-inner {
+        max-width: 100% !important;
+    }
+}

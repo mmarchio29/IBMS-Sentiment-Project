@@ -1,0 +1,126 @@
+/* Error Page Container */
+.error-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    width: 100%;
+    background: linear-gradient(135deg, rgba(167, 24, 49, 0.3), rgba(70, 24, 49, 0.3));
+    color: white;
+    text-align: center;
+    overflow: hidden;
+    margin: 30px;
+}
+
+/* Content Container for Better Layout */
+.error-content {
+    max-width: 80%;
+    max-height: 100%;
+    padding: 100px;
+    margin: 20px;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Title Styling */
+.error-title {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    animation: slideInDown 1s ease-in-out;
+}
+
+/* Quote Styling */
+.error-quote {
+    font-style: italic;
+    margin-bottom: 10px;
+    font-size: 1.7rem;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Error Message Styling */
+.error-message {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    animation: fadeIn 2s ease-in-out;
+}
+
+/* Button Styling */
+.back-button {
+    padding: 15px 30px;
+    color: #ffffff;
+    border: none;
+    border-radius: 50px;
+    text-decoration: none;
+    background-color: #ff416c;
+    font-size: 1.5rem;
+    transition: background-color 0.3s, transform 0.3s ease;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.back-button:hover {
+    background-color: #ff4b2b;
+    color: #ffffff;
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Header Icon Styling */
+.header-icon {
+    width: 30%;
+    height: auto;
+    margin-bottom: 30px;
+    animation: bounceIn 2s ease-in-out;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInDown {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounceIn {
+    from {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 1000px) {
+    .error-title {
+        font-size: 2rem;
+    }
+
+    .error-quote, .error-message {
+        font-size: 1rem;
+    }
+
+    .back-button {
+        font-size: 1.2rem;
+        padding: 10px 20px;
+    }
+
+    .header-icon {
+        width: 80px;
+    }
+}

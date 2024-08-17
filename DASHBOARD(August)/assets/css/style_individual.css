@@ -1,0 +1,96 @@
+/* General Styles */
+body {
+    background-color: #1c1c1c;
+    font-family: 'Roboto', sans-serif;
+    color: #e0e0e0;
+}
+
+/* Container Styling */
+.container {
+    padding: 20px;
+    border-radius: 15px;
+    background-color: #282828;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Title and Header Styling */
+h3 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 28px;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+/* Tooltip Styling */
+.tooltip-inner {
+    background-color: #333;
+    color: #fff;
+    border-radius: 5px;
+}
+
+/* Label Styling */
+label {
+    font-size: 18px;
+    color: #e0e0e0;
+    margin-bottom: 10px;
+}
+
+/* Radio and Checkbox Styling */
+.radio-inline, .checkbox-inline {
+    font-size: 16px;
+    color: #c0c0c0;
+}
+
+/* Slider Styling */
+.range-slider {
+    margin: 20px 0;
+}
+
+.range-slider .slider-track {
+    background-color: #444;
+}
+
+.range-slider .slider-handle {
+    background-color: #008080;
+    border-radius: 50%;
+    border: 2px solid #006060;
+}
+
+/* Graph Styling */
+.graph {
+    border: 1px solid #444;
+    border-radius: 10px;
+    background-color: rgba(17, 17, 17, 0.7);
+}
+
+.graph-title {
+    font-size: 20px;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+/* Indicator Styling */
+.indicator {
+    font-size: 50px;
+    color: #57e389;
+}
+
+/* Pie Chart Customization */
+.piechart .plotly-legend {
+    background-color: rgba(17, 17, 17, 0.7);
+    border: 1px solid #444;
+}
+
+/* Miscellaneous Styles */
+.btn {
+    background-color: #008080;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.dropdown-individual {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

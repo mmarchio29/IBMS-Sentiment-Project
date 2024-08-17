@@ -1,0 +1,55 @@
+/* Header Styling */
+.header {
+    background: linear-gradient(135deg, #4E001C, #6B0F1A); /* Matching the navbar gradient */
+    padding: 20px 0;
+    text-align: center; /* Center the logo */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for effect */
+}
+
+.header-logo, .footer-logo {
+    height: auto;
+    padding: 10px 0;
+}
+
+.header-logo {
+    width: 300px;
+}
+
+.footer-logo {
+    width: 500px;
+}
+
+
+/* Footer Styling */
+.footer {
+    background-color: #4E001C; /* Dark footer background */
+    color: #ffffff; /* White text for readability */
+    padding: 20px;
+    text-align: center;
+    margin-top: 30px; /* Space between content and footer */
+}
+
+.footer-logo-container {
+    margin-bottom: 10px; /* Space between logo and contact info */
+}
+
+.footer-contact-container {
+    margin-top: 10px;
+    font-size: 0.9rem;
+}
+
+.footer-contact {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.footer-email {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer-email:hover {
+    text-decoration: underline;
+    color: #ff4b2b;
+}

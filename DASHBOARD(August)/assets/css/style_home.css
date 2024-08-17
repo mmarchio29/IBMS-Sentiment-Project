@@ -1,0 +1,293 @@
+/* General Enhancements */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7f6;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+}
+
+.main-container {
+    min-height: 100vh;
+    width: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                url('../images/questrom.png') no-repeat center center/cover;
+}
+
+.header-topic {
+    width: 100%;
+    text-align: center;
+    padding: 40px;
+    color: white;
+}
+
+.header-section-parent {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    min-height: 50vh;
+}
+
+.header-section {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    background-color: rgba(167, 24, 49, 0.6);
+    color: white;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.header-section-text {
+    text-align: left;
+    font-size: 2rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.header-section-img {
+    width: 30%;
+    height: auto;
+    background: url('../images/dollar.png') center center/contain;
+}
+
+.header-icon {
+    width: 10%;
+}
+
+/* Button Enhancements */
+.header-section-button, .ideology-button {
+    padding: 15px 30px;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 1.5rem;
+    background: linear-gradient(45deg, #ff416c, #ff4b2b);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.header-section-button:hover, .ideology-button:hover {
+    background: linear-gradient(45deg, #ff4b2b, #ff416c);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+.header-section-button-box {
+    padding-top: 50px;
+    padding-bottom: 60px;
+}
+
+.page-content {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Ideology Block Enhancements */
+.ideology-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.ideology-section-one {
+    display: flex;
+    justify-content: space-around;
+    padding: 80px 80px 20px 80px;
+    flex-wrap: wrap;
+}
+
+.ideology-section-two {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px 80px 80px 80px;
+    flex-wrap: wrap;
+}
+
+.ideology-block {
+    border-radius: 15px;
+    background-color: rgba(167, 24, 49, 0.6);
+    padding: 40px;
+    width: 22%;
+    text-align: center;
+    margin: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ideology-block:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.ideology-icon {
+    width: 20%;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+.ideology-icon:hover {
+    transform: rotate(10deg);
+}
+
+.ideology-block-header h3 {
+    color: white;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.ideology-block-list {
+    text-align: center;
+    padding-bottom: 30px;
+    color: darkgray;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    font-size: 30px;
+    list-style-type: none;
+}
+
+h1, h2, h3 {
+    padding: 20px;
+}
+
+h1 {
+    font-size: 80px;
+}
+
+h2 {
+    font-size: 60px;
+}
+
+h3 {
+    font-size: 40px;
+}
+
+p {
+    font-size: 30px;
+}
+
+a {
+    font-size: 20px;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 2000px) {
+    .header-logo, .footer-logo {
+        width: 300px;
+    }
+    .header-section-button, .ideology-button {
+        font-size: 20px;
+    }
+    h1 {
+        font-size: 60px;
+        padding: 10px;
+    }
+    h2 {
+        font-size: 40px;
+        padding: 10px;
+    }
+    h3 {
+        font-size: 30px;
+        padding: 10px;
+    }
+    p {
+        font-size: 20px;
+    }
+    li {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 1500px) {
+    .header-logo, .footer-logo {
+        width: 300px;
+    }
+    .header-section-button, .ideology-button {
+        width: 100%;
+        font-size: 20px;
+    }
+    .ideology-block {
+        width: 80%;
+    }
+    h1 {
+        font-size: 60px;
+    }
+    h2 {
+        font-size: 40px;
+    }
+    h3 {
+        font-size: 30px;
+    }
+    p {
+        font-size: 20px;
+    }
+    li {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 1200px) {
+    h1 {
+        font-size: 50px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .header-logo, .footer-logo {
+        width: 300px;
+    }
+    .header-section-button, .ideology-button {
+        width: 100%;
+        font-size: 20px;
+    }
+    .ideology-block {
+        width: 80%;
+    }
+    h1 {
+        font-size: 40px;
+    }
+    h2 {
+        font-size: 30px;
+    }
+    h3 {
+        font-size: 20px;
+    }
+    p {
+        font-size: 20px;
+    }
+    li {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 800px) {
+    .header-section {
+        width: 100%;
+        padding: 20px;
+    }
+    .header-section-img {
+        display: none; /* Hide the image on smaller screens */
+    }
+    .ideology-block {
+        width: 90%;
+        margin: 20px;
+    }
+}
+
+.footer-copyright {
+    font-size: 16px;
+    text-align: center;
+    color: #FF4136;
+}
